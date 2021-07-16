@@ -7,7 +7,7 @@ class CardTest {
     @Test
     fun verifyDiamondAce() {
         // Arrange
-        val card = Card(1, Suit.Diamond)
+        val card = Card.create(1, Suit.Diamond)
         val expected = "Ace of Diamond"
         // Act
         val result: String = card.toString()
@@ -18,7 +18,7 @@ class CardTest {
     @Test
     fun verifyHeartTwo() {
         // Arrange
-        val card = Card(2, Suit.Heart)
+        val card = Card.create(2, Suit.Heart)
         val expected = "Two of Heart"
         // Act
         val result: String = card.toString()

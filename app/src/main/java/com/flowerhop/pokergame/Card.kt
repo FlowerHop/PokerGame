@@ -1,6 +1,12 @@
 package com.flowerhop.pokergame
 
-class Card(val number: Int, val suit: Suit) {
+class Card private constructor(val number: Int, val suit: Suit) {
+    companion object {
+        fun create(number: Int, suit: Suit): Card {
+            return Card(number, suit)
+        }
+    }
+
     override fun toString(): String {
         val numberString = getNumberString()
         return "$numberString of $suit"
