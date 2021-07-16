@@ -18,7 +18,7 @@ class CardTest {
     @Test
     fun verifyHeartTwo() {
         // Arrange
-        var card = Card(2, Suit.Heart)
+        val card = Card(2, Suit.Heart)
         val expected = "Two of Heart"
         // Act
         val result: String = card.toString()
