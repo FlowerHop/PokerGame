@@ -15,8 +15,7 @@ class Card private constructor(val number: Int, val suit: Suit) {
     }
 
     override fun toString(): String {
-        val numberString = getNumberString()
-        return "$numberString of $suit"
+        return "${getNumberString()} of $suit"
     }
 
     private fun getNumberString(): String {
