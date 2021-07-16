@@ -1,8 +1,15 @@
 package com.flowerhop.pokergame
 
+import java.lang.IllegalArgumentException
+import kotlin.jvm.Throws
+
 class Card private constructor(val number: Int, val suit: Suit) {
     companion object {
+        @Throws(IllegalArgumentException::class)
         fun create(number: Int, suit: Suit): Card {
+            if (number < 1 || number > 13) {
+                throw IllegalArgumentException("Can't create a Card instance which number is $number.")
+            }
             return Card(number, suit)
         }
     }
