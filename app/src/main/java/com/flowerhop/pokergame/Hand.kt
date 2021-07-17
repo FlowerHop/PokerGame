@@ -14,8 +14,15 @@ class Hand(val cardList: List<Card>) {
         else if (suits.size == 1) return RankingCategory.Flush
         else return RankingCategory.HighCard
     }
+
+    fun wins(hand: Hand): Boolean {
+        return getCategory().ranking > hand.getCategory().ranking
+    }
 }
 
-enum class RankingCategory {
-    Flush, FullHouse, FourOfAKind, HighCard
+enum class RankingCategory(val ranking: Int) {
+    HighCard(0),
+    FullHouse(1),
+    Flush(2),
+    FourOfAKind(3),
 }

@@ -85,4 +85,62 @@ class HandTest {
         // Assert
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Flush should win full house`() {
+        // Arrange
+        val flushCards = listOf<Card>(
+            Card.create(1, Suit.Club),
+            Card.create(3, Suit.Club),
+            Card.create(9, Suit.Club),
+            Card.create(10, Suit.Club),
+            Card.create(13, Suit.Club),
+        )
+
+        val fullHouseCards = listOf<Card>(
+            Card.create(11, Suit.Club),
+            Card.create(11, Suit.Spade),
+            Card.create(11, Suit.Diamond),
+            Card.create(3, Suit.Heart),
+            Card.create(3, Suit.Club),
+        )
+
+        val flushHand = Hand(flushCards)
+        val fullHouseHand = Hand(fullHouseCards)
+
+        // Act
+        val compares = flushHand.wins(fullHouseHand)
+
+        // Assert
+        assertTrue(compares)
+    }
+
+    @Test
+    fun `Full house should not win flush`() {
+        // Arrange
+        val flushCards = listOf<Card>(
+            Card.create(1, Suit.Club),
+            Card.create(3, Suit.Club),
+            Card.create(9, Suit.Club),
+            Card.create(10, Suit.Club),
+            Card.create(13, Suit.Club),
+        )
+
+        val fullHouseCards = listOf<Card>(
+            Card.create(11, Suit.Club),
+            Card.create(11, Suit.Spade),
+            Card.create(11, Suit.Diamond),
+            Card.create(3, Suit.Heart),
+            Card.create(3, Suit.Club),
+        )
+
+        val flushHand = Hand(flushCards)
+        val fullHouseHand = Hand(fullHouseCards)
+
+        // Act
+        val compares = fullHouseHand.wins(flushHand)
+
+        // Assert
+        assertFalse(compares)
+    }
 }
