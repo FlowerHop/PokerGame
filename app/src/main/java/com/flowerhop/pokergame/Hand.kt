@@ -12,9 +12,7 @@ class Hand(val cardList: List<Card>) {
                 return RankingCategory.FullHouse
         }
         else if (suits.size == 1) return RankingCategory.Flush
-        else if (suits.size == 2) {
-            return RankingCategory.HighCard
-        } else TODO()
+        else return RankingCategory.HighCard
     }
 }
 
