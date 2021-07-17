@@ -14,7 +14,7 @@ class HandTest {
             Card.create(10, Suit.Club),
             Card.create(13, Suit.Club),
         )
-        val expected = "Flush"
+        val expected = RankingCategory.Flush
 
         // Act
         val hand = Hand(cardList)
@@ -34,7 +34,7 @@ class HandTest {
             Card.create(10, Suit.Club),
             Card.create(13, Suit.Diamond),
         )
-        val expected = "High Card"
+        val expected = RankingCategory.HighCard
 
         // Act
         val hand = Hand(cardList)
@@ -55,7 +55,7 @@ class HandTest {
             Card.create(3, Suit.Club),
         )
 
-        val expected = "Full House"
+        val expected = RankingCategory.FullHouse
 
         // Act
         val hand = Hand(cardList)
@@ -76,7 +76,7 @@ class HandTest {
             Card.create(3, Suit.Club),
         )
 
-        val expected = "Four of a Kind"
+        val expected = RankingCategory.FourOfAKind
 
         // Act
         val hand = Hand(cardList)
